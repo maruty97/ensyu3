@@ -54,23 +54,50 @@ $items=[
     array_multisort($stock2,SORT_DESC,$items);
     print_r($items);
 
-     /* $stockorder=[];
-    $count=0;
-    while($count< count($items)){
-        $tmp= null;
-        foreach($items as $item =>$number){
-        if(in_array($number['stock'], $stockorder))continue;
-        if($tmp===null){
-            $tmp=$number['stock'];
-        }else{
-            $tmp=max($tmp,$number['stock']);
-        }
-    //    echo $number['name'].'の在庫は'.$number['stock'].'です。'."\n";
-            }
-        $stockorder[]=null;
-        $count++;
-    }
-
-    var_dump($stockorder);*/
 ?>
-    
+
+<?php
+//在庫が少ない商品名(name)を表示してください。
+$items=[
+    ['id'=>'1', 'name'=>'pencil', 'price'=>'100', 'stock'=>'78', 'sales'=>'47'],
+    ['id'=>'2', 'name'=>'pen', 'price'=>'150', 'stock'=>'12', 'sales'=>'30'],
+    ['id'=>'3', 'name'=>'case', 'price'=>'500', 'stock'=>'12', 'sales'=>'20'],
+    ['id'=>'4', 'name'=>'note', 'price'=>'200', 'stock'=>'97', 'sales'=>'100']
+    ];
+
+    foreach($items as $key => $value){
+        $stock3[$key] = $value['stock'];
+    }
+        array_multisort($stock3,SORT_ASC,$items);
+        print_r($items);
+?>    
+
+<?php
+//・売上(price*sales)が高い順に表示してください。
+$items=[
+    ['id'=>'1', 'name'=>'pencil', 'price'=>'100', 'stock'=>'78', 'sales'=>'47'],
+    ['id'=>'2', 'name'=>'pen', 'price'=>'150', 'stock'=>'12', 'sales'=>'30'],
+    ['id'=>'3', 'name'=>'case', 'price'=>'500', 'stock'=>'12', 'sales'=>'20'],
+    ['id'=>'4', 'name'=>'note', 'price'=>'200', 'stock'=>'97', 'sales'=>'100']
+    ];
+foreach($items as $key => $value){
+    $stock4[$key]=$value['price']*$value['sales'];
+}
+    array_multisort($stock4,SORT_DESC,$items);
+    print_r($items);
+
+
+?>
+
+<?php
+//・商品名(name)に‘pen’という文字が含まるものについて、商品名(name)と価格(price)を表示してください。
+$items=[
+    ['id'=>'1', 'name'=>'pencil', 'price'=>'100', 'stock'=>'78', 'sales'=>'47'],
+    ['id'=>'2', 'name'=>'pen', 'price'=>'150', 'stock'=>'12', 'sales'=>'30'],
+    ['id'=>'3', 'name'=>'case', 'price'=>'500', 'stock'=>'12', 'sales'=>'20'],
+    ['id'=>'4', 'name'=>'note', 'price'=>'200', 'stock'=>'97', 'sales'=>'100']
+    ];
+
+
+
+?>
