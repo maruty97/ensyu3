@@ -91,13 +91,17 @@ foreach($items as $key => $value){
 
 <?php
 //・商品名(name)に‘pen’という文字が含まるものについて、商品名(name)と価格(price)を表示してください。
+//substar
 $items=[
     ['id'=>'1', 'name'=>'pencil', 'price'=>'100', 'stock'=>'78', 'sales'=>'47'],
     ['id'=>'2', 'name'=>'pen', 'price'=>'150', 'stock'=>'12', 'sales'=>'30'],
     ['id'=>'3', 'name'=>'case', 'price'=>'500', 'stock'=>'12', 'sales'=>'20'],
     ['id'=>'4', 'name'=>'note', 'price'=>'200', 'stock'=>'97', 'sales'=>'100']
     ];
-
-
-
+        foreach($items as $key => $value){
+            $pen =substr($value['name'],0,3);
+                if($pen ==='pen'){
+                        echo $value['name'].'の価格は'.$value['price'].'です。'."\n";  
+                }
+        }
 ?>
